@@ -13,7 +13,7 @@ const Quiz = ({ questions }) => {
     const { question, choices, correctAnswer } = questions[currentQuestion];
 
     useEffect(() => {
-        const savedState = JSON.parse(localStorage.getItem("quizState")) || {};
+        const savedState = JSON.parse(window.localStorage.getItem("quizState")) || {};
         setCurrentQuestion(savedState.currentQuestion || 0);
         setAnswerIdx(savedState.answerIdx || null);
         setAnswer(savedState.answer || null);
@@ -31,7 +31,7 @@ const Quiz = ({ questions }) => {
             showResult,
             showAnswers,
         };
-        localStorage.setItem("quizState", JSON.stringify(stateToSave));
+        window.localStorage.setItem("quizState", JSON.stringify(stateToSave));
     }, [currentQuestion, answerIdx, answer, result, showResult, showAnswers]);
 
     const onAnswerClick = (answer, index) => {
