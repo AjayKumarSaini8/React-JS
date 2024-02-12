@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsCurrencyRupee } from 'react-icons/bs';
-import { GoPrimitiveDot } from 'react-icons/go'
+import { GoDot } from 'react-icons/go';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { Stacked, Pie, Button, SparkLine } from '../components'
 import { earningData, SparklineAreaData, dropdownData, ecomPieChartData } from '../data/dummy'
@@ -67,13 +67,13 @@ const Ecommerce = () => {
                         <div className="flex items-center gap-4">
                             <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
                                 <span>
-                                    {/* <GoPrimitiveDot /> */}
+                                    <GoDot />
                                 </span>
                                 <span>Expense</span>
                             </p>
                             <p className='flex items-center gap-2 text-green-400 hover:drop-shadow-xl'>
                                 <span>
-                                    {/* <GoPrimitiveDot /> */}
+                                    <GoDot />
                                 </span>
                                 <span>Budget</span>
                             </p>
@@ -96,8 +96,20 @@ const Ecommerce = () => {
                         </div>
 
                         <div className="mt-5">
-                            <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
+                            <SparkLine
+                                currentColor='blue'
+                                id="line-sparkLine"
+                                type="Line"
+                                height="80px"
+                                width="250px"
+                                data={SparklineAreaData}
+                                color='blue' />
                         </div>
+                    </div>
+                    <div>
+                        <Stacked width='320px'
+                            height="360px"
+                        />
                     </div>
                 </div>
             </div>
