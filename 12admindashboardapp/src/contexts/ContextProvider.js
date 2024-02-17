@@ -15,6 +15,7 @@ export const ContextProvider = ({ children }) => {
     const [currentMode, setCurrentMode] = useState('Light');
     const [themeSettings, setThemeSettings] = useState(false);
     const [activeMenu, setActiveMenu] = useState(true);
+    const [activeCart, setActiveCart] = useState(false);
     const [isClicked, setIsClicked] = useState(initialState);
 
     const setMode = (e) => {
@@ -29,11 +30,16 @@ export const ContextProvider = ({ children }) => {
         setThemeSettings(false);
     };
 
-    const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
+    const handleClick = (clicked) => {
+        setIsClicked((prevState) => ({
+            ...prevState,
+            [clicked]: !prevState[clicked],
+        }));
+    };
 
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <StateContext.Provider value={{ currentColor, currentMode, activeMenu, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings }}>
+        <StateContext.Provider value={{ currentColor, currentMode, activeMenu, activeCart, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setActiveCart, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings }}>
             {children}
         </StateContext.Provider>
     );
